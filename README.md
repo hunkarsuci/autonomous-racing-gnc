@@ -1,10 +1,21 @@
 # Autonomous Racing Dynamics and Control
 
-An educational and research-oriented Python repository for vehicle dynamics, state estimation, planning, optimal control, reinforcement learning, simulation, and reproducible autonomous-racing experiments.
+An educational and research-oriented repository for building an autonomous-racing GNC stack through vehicle dynamics, state estimation, planning, optimal control, simulation, and reproducible validation.
 
-## Learning path
+> **Active build track:** [60-Day Autonomous Racing GNC Build](docs/60_DAY_ROADMAP.md)  
+> **System architecture:** [Project Architecture](docs/PROJECT_ARCHITECTURE.md)  
+> **Daily method:** [Learning Workflow](docs/LEARNING_WORKFLOW.md)
 
-The numbered modules are intended to be followed in order:
+## Two layers of the repository
+
+This repository now has two complementary structures:
+
+1. **The numbered modules (01–26)** are the broader knowledge map and reference curriculum.
+2. **The `racing/` package + 60-day roadmap** is the active integrated engineering project.
+
+The goal of the 60-day track is not to touch every advanced topic. It is to finish a coherent V1: dynamics + sensors + EKF + track/Frenet representation + planning + classical control + LQR + MPC + racing speed/path optimization + validation.
+
+## Learning path / knowledge map
 
 1. [Vehicle Dynamics Fundamentals](01_vehicle_dynamics_fundamentals/README.md)
 2. [Tire Dynamics](02_tire_dynamics/README.md)
@@ -33,15 +44,17 @@ The numbered modules are intended to be followed in order:
 25. [Research Experiment Design](25_research_experiment_design/README.md)
 26. [Thesis Methods and Reproducibility](26_thesis_methods_reproducibility/README.md)
 
-Each module separates exploratory notebooks, reusable code, tests, data, configurations, or experiments as appropriate.
-
 ## Shared project structure
 
-- `shared/`: reusable dynamics, estimation, control, planning, optimization, learning, math, plotting, I/O, and utility code.
-- `data/`: raw, processed, simulated, and track data. Large or generated datasets should not be committed.
+- `racing/`: integrated implementation built during the 60-day track.
+- `docs/daily/`: one-hour daily checkpoints.
+- `experiments/`: reproducible experiment entry points.
+- `tracks/`: track assets and metadata.
+- `shared/`: legacy/broader reusable topic-oriented utilities.
+- `data/`: raw, processed, simulated, and track data.
 - `configs/`: reusable system and experiment configurations.
 - `tests/`: project-wide unit, integration, regression, and validation tests.
-- `docs/`: theory, derivations, references, and thesis notes.
+- `docs/`: theory, derivations, references, and project notes.
 - `results/`: generated figures, tables, logs, and benchmarks.
 
 ## Setup
@@ -55,14 +68,6 @@ python -m pip install --upgrade pip
 python -m pip install -e ".[dev]"
 pytest
 ```
-
-## Conventions
-
-- Put reusable implementations in module `src/` directories or `shared/`.
-- Keep notebooks focused on derivations, demonstrations, and analysis.
-- Store experiment parameters under the nearest `configs/` directory.
-- Write generated outputs to `results/`; do not overwrite source data.
-- Add unit tests for numerical models and regression tests for validated baselines.
 
 ## License
 
